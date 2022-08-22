@@ -5,7 +5,7 @@
 | 특징             | 1. 결합도가 낮고 확장성이 높다. <br>2. 비용이 많이 든다. <br>3. 통합 테스트가 까다롭다. <br>4. 개발자의 자율성이 높다. | 1. 결합도가 높고 확장성이 낮다. <br>2. 구조가 간단하다. <br>3. 비용이 적게 든다.                                                                                                          |
 | 형상 관리        | 배포한 각 서비스에 대해 다른 서비스와 형상관리가 필수적이다.                                               | 하나의 어플리케이션으로 관리되기 때문에 형상 관리가 쉽다.                                                                                                                         |
 | 배포 및 유지보수 | 1. 독립적인 서비스로 배포가 빠르다. <br>2. 서비스 별로 유지보수가 가능하다.                                    | 1. 전체를 다시 빌드하고 배포해 프로젝트의 규모가 커질수록 어플리케이션의 구동 시간, 빌드, 배포 시간이 많이 소요된다. <br>2. 한 프로젝트에 많은 양의 코드가 있어 유지 보수가 까다롭다. |
-| 조직구조         | 대규모 조직에 적합하다. 하나의 작은 팀에서 하나의 서비스를 개발한다.                                       |                                                                                                                                                                                   |
+| 조직구조         | 대규모 조직에 적합하다. 하나의 독립된 팀에서 하나의 서비스를 개발한다.                                       |                                                                                                                                                                                   |
 
 # API Gateway
 
@@ -26,7 +26,7 @@ API Gateway란 API서버 앞단에서 모든 API 서버들의 Endpoint를 단일
 
 - Spring Cloud + Zuul 의 형태
 - Spring Cloud 초창기 버전에 Netflix OSS에 포함된 컴포넌트 중 하나로 API gateway 패턴을 구현하는 기능
-- **Servlet Container** 기반으로 만들어져 synchronous, blocking 방식으로 서비스를 처리
+- Servlet Container 기반으로 만들어져 synchronous, blocking 방식으로 서비스를 처리
 - Spring boot에서 사용되었으나 2.4버전 이후로 [zuul, hystrix, ribbon](https://spring.io/blog/2018/12/12/spring-cloud-greenwich-rc1-available-now#spring-cloud-netflix-projects-entering-maintenance-mode)
 를 제공하지 않으며 SCG 사용을 권장
 
@@ -38,8 +38,7 @@ API Gateway란 API서버 앞단에서 모든 API 서버들의 Endpoint를 단일
 
 ## **SCG 동작 원리 및 구조**
 
-![img](https://velog.velcdn.com/images%2F_koiil%2Fpost%2Febf2211d-bd55-4f17-bf97-8c7dfa59ffd7%2Fimage.png){: width="100" height="100"}
-
+<img src="https://velog.velcdn.com/images%2F_koiil%2Fpost%2Febf2211d-bd55-4f17-bf97-8c7dfa59ffd7%2Fimage.png" width="600" />
 출처 : [https://www.slideshare.net/ifkakao/msa-api-gateway](https://www.slideshare.net/ifkakao/msa-api-gateway)
 
 ## API Gateway 역할
@@ -83,6 +82,10 @@ SOA와 MSA 모두 서비스 지향 설계 방식으로 MSA가 SOA에 속한다�
 
 * 소스 코드상에서 다른 부분에 계속 반복해서 쓰는 코드들을 흩어진 관심사(Crosscutting Concerns)라고 한다.
 
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FuTIy9%2FbtrH0cxHpnL%2Fr6vtVkE2K6RRK8X9VPqELk%2Fimg.png" width="550" height="280" />
 
-
-동일한 기능을 여러 서비스에서 이용할 때 AOP는 기존 OOP*(Object Oriented Programming)*에서 바라보던 관점을 다르게 하여 부가 기능적인 측면에서 봤을 때 공통 요소를 추출하는 역할을 한다.
+동일한 기능을 여러 서비스에서 이용할 때 AOP는 기존 OOP(*Object Oriented Programming*)에서 바라보던 관점을 다르게 하여 부가 기능적인 측면에서 봤을 때 공통 요소를 추출하는 역할을 한다.
+|                OOP               |                    AOP                    |
+|:--------------------------------:|:-----------------------------------------:|
+|      비즈니스 로직의 모듈화      |       인프라 혹은 부가 기능의 모듈화      |
+| 모듈화 핵심 단위는 비즈니스 로직 | 각 모듈들의 주 목적 외 필요한 부가 기능들 |
