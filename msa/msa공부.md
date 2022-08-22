@@ -39,7 +39,7 @@ API Gateway란 API서버 앞단에서 모든 API 서버들의 Endpoint를 단일
 ## **SCG 동작 원리 및 구조**
 
 <img src="https://velog.velcdn.com/images%2F_koiil%2Fpost%2Febf2211d-bd55-4f17-bf97-8c7dfa59ffd7%2Fimage.png" width="600" />
-출처 : [https://www.slideshare.net/ifkakao/msa-api-gateway](https://www.slideshare.net/ifkakao/msa-api-gateway]
+출처 : [https://www.slideshare.net/ifkakao/msa-api-gateway]
 
 ## API Gateway 역할
 
